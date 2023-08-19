@@ -1,22 +1,22 @@
-x-uffizzi:
-  ingress:
-    service: app
-    port: 80
-
+version: '3.3'
 services:
-  app:
-    build: .
-    deploy:
-      resources:
-        limits:
-          memory: 4000M
-    restart: always
-    ports:
-      - "80:80"
-    privileged: true
-    depends_on:
-      - app
-    cap_add:
-      - SYS_ADMIN
-volumes:
-  data:
+    alist:
+        restart: always
+        volumes:
+            - '/etc/alist:/opt/alist/data'
+        ports:
+            - '80:80'
+        environment:
+            - PUID=0
+            - PGID=0
+            - UMASK=022
+            - DB_HOST=数据库地址
+            - DB_NAME=数据库名字
+            - DB_PASS=数据库密码
+            - DB_PORT=数据库端口（postgreSQL默认为5432，mysql默认为3306）
+            - DB_SSL_MODE=（建议disable）
+            - DB_TABLE_PREFIX=xlist
+            - DB_TYPE=mysql就填mysql，postgreSQL就填postgres
+            - DB_USER=数据库用户名
+        container_name: alist
+        image: 'xhofe/alist:latest'
