@@ -1,4 +1,4 @@
-alist-uffizzi:
+x-uffizzi:
   ingress:
     service: app
     port: 80
