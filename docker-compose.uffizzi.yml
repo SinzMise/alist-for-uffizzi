@@ -10,13 +10,13 @@ services:
             - PUID=0
             - PGID=0
             - UMASK=022
-            - DB_HOST=数据库地址
-            - DB_NAME=数据库名字
-            - DB_PASS=数据库密码
-            - DB_PORT=数据库端口（postgreSQL默认为5432，mysql默认为3306）
-            - DB_SSL_MODE=（建议disable）
+            - DB_HOST=
+            - DB_NAME=
+            - DB_PASS=
+            - DB_PORT=
+            - DB_SSL_MODE=
             - DB_TABLE_PREFIX=xlist
-            - DB_TYPE=mysql就填mysql，postgreSQL就填postgres
-            - DB_USER=数据库用户名
+            - DB_TYPE=
+            - DB_USER=
         container_name: alist
         image: 'xhofe/alist:latest'
