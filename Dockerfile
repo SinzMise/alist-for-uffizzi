@@ -5,6 +5,4 @@ USER root
 
 COPY entrypoint.sh ./
 
-RUN apt-get update && apt-get install -y systemctl
-
 ENTRYPOINT [ "./entrypoint.sh" ]
